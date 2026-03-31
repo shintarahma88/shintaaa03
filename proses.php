@@ -13,9 +13,9 @@ class User {
     }
 
     function tampilData() {
-        return "Hi, my name is " . $this->firstname . " " . $this->lastname . "<br>" .
-               "Phone Number: " . $this->phone . "<br>" .
-               "Address: " . $this->address;
+        return "<p>Hi, my name is <b>$this->firstname $this->lastname</b></p>
+                <p>Phone Number: $this->phone</p>
+                <p>Address: $this->address</p>";
     }
 }
 
@@ -32,18 +32,56 @@ $user = new User($firstname, $lastname, $phone, $address);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hasil</title>
+    <title>Hasil Input</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 400px;
+            margin: 100px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        h2 {
+            color: #ff4b5c;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px;
+            background: #0072ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        a:hover {
+            background: #0056cc;
+        }
+    </style>
 </head>
+
 <body>
 
-<h2>Hasil Input</h2>
+<div class="container">
+    <h2>Hasil Input</h2>
 
-<?php
-echo $user->tampilData();
-?>
+    <?php
+        echo $user->tampilData();
+    ?>
 
-<br><br>
-<a href="form.php">Reset</a>
-
+    <a href="form.php">Kembali</a>
+</div>
 </body>
 </html>
